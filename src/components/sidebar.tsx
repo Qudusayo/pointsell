@@ -18,11 +18,11 @@ import React, { FC } from "react";
 
 const Sidebar = () => {
 	return (
-		<section className="h-full border-r">
+		<section className="flex h-full flex-col border-r">
 			<div className="border-b p-7 leading-[0]">
 				<Image src="/logo.svg" alt="logo" width={45} height={45} />
 			</div>
-			<div className="flex flex-col items-center gap-12 py-12">
+			<div className="flex flex-grow flex-col items-center justify-around">
 				<LinkIcon href="/" icon={Home3} />
 				<LinkIcon href="/dashboard" icon={Category} />
 				<LinkIcon href="/orders" icon={ClipboardText} />
