@@ -3,12 +3,12 @@
 import {
 	Category,
 	ClipboardText,
-	Gallery,
 	Home3,
 	IconProps,
 	Notification,
 	Send,
 	Setting2,
+	ShoppingBag,
 	User,
 } from "iconsax-react";
 import Image from "next/image";
@@ -26,9 +26,9 @@ const Sidebar = () => {
 				<LinkIcon href="/" icon={Home3} />
 				<LinkIcon href="/dashboard" icon={Category} />
 				<LinkIcon href="/orders" icon={ClipboardText} />
-				<LinkIcon href="/products" icon={Gallery} />
-				<LinkIcon href="/notifications" icon={Notification} />
+				<LinkIcon href="/products" icon={ShoppingBag} />
 				<LinkIcon href="/customers" icon={User} />
+				<LinkIcon href="/notifications" icon={Notification} />
 				<LinkIcon href="/messages" icon={Send} />
 				<LinkIcon href="/settings" icon={Setting2} />
 			</div>

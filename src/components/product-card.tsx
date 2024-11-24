@@ -15,7 +15,7 @@ const ProductCard = () => {
 				<Image
 					alt="Card background"
 					className="rounded-xl object-cover"
-					src="https://nextui.org/images/hero-card-complete.jpeg"
+					src="/placeholder.png"
 				/>
 			</CardHeader>
 			<CardBody className="flex-col items-start px-4 pb-0 pt-2">
@@ -26,7 +26,7 @@ const ProductCard = () => {
 			<CardFooter className="pb-0">
 				<Button
 					startContent={<Add size="20" color="#FFF" variant="Outline" />}
-					className="bg-main-color-primary text-white"
+					className="w-full bg-main-color-primary text-white"
 				>
 					Add Product
 				</Button>
