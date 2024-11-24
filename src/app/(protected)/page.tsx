@@ -16,12 +16,13 @@ export default function Home() {
 					width: isSidebarCartOpen ? "calc(100% - 384px)" : "100%",
 					transition: "width 0.3s",
 				}}
+				className="flex flex-col overflow-y-hidden"
 			>
 				<HomeHeader />
 				<div
 					className={cn(
-						"grid flex-1 grid-cols-4 gap-4 overflow-y-auto px-6 pb-6",
-						isSidebarCartOpen && "grid-cols-3",
+						"grid flex-1 gap-4 overflow-scroll px-6 pb-6",
+						isSidebarCartOpen ? "grid-cols-3" : "grid-cols-4",
 					)}
 				>
 					{Array(10)
