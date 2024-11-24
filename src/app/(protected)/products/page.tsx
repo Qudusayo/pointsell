@@ -1,12 +1,26 @@
 import GeneralLayout from "@/layout/general-layout";
+import { Button } from "@nextui-org/react";
+import { Plus } from "lucide-react";
+import Link from "next/link";
+import { products } from "./data";
 import Products from "./products";
 
 const DashboardPage = () => {
 	return (
-		<GeneralLayout headerTitle="Product">
-			<div className="px-6 pb-6">
-				<Products />
-			</div>
+		<GeneralLayout
+			headerTitle="Products"
+			headerControl={
+				<Button
+					startContent={<Plus size={16} />}
+					className="bg-main-color-primary text-white"
+					as={Link}
+					href="/products/new"
+				>
+					Add Product
+				</Button>
+			}
+		>
+			<Products products={products} />
 		</GeneralLayout>
 	);
 };

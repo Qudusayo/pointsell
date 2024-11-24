@@ -1,62 +1,39 @@
+import { formattedDate } from "@/lib/utils";
+import { faker } from "@faker-js/faker";
+
 const columns = [
-	{ name: "PRODUCT", uid: "name" },
-	{ name: "ROLE", uid: "role" },
+	{ name: "PRODUCT", uid: "product_name", sortable: true },
+	{ name: "PRICE", uid: "price", sortable: true },
+	{ name: "SERIAL NUMBER", uid: "serial_number" },
 	{ name: "STATUS", uid: "status" },
-	{ name: "PRICE", uid: "price" },
-	{ name: "ACTIONS", uid: "actions" },
+	{ name: "DATE ADDED", uid: "date_added", sortable: true },
+	{ name: "", uid: "actions" },
 ];
 
-const users = [
-	{
-		id: 1,
-		name: "Tony Reichert",
-		role: "CEO",
-		team: "Management",
-		status: "active",
-		price: "29",
-		avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-		email: "tony.reichert@example.com",
-	},
-	{
-		id: 2,
-		name: "Zoey Lang",
-		role: "Technical Lead",
-		team: "Development",
-		status: "paused",
-		price: "25",
-		avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-		email: "zoey.lang@example.com",
-	},
-	{
-		id: 3,
-		name: "Jane Fisher",
-		role: "Senior Developer",
-		team: "Development",
-		status: "active",
-		price: "22",
-		avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-		email: "jane.fisher@example.com",
-	},
-	{
-		id: 4,
-		name: "William Howard",
-		role: "Community Manager",
-		team: "Marketing",
-		status: "vacation",
-		price: "28",
-		avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
-		email: "william.howard@example.com",
-	},
-	{
-		id: 5,
-		name: "Kristen Copper",
-		role: "Sales Manager",
-		team: "Sales",
-		status: "active",
-		price: "24",
-		avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
-		email: "kristen.cooper@example.com",
-	},
-];
+const statuses = ["in_stock", "out_of_stock", "running_low"];
 
-export { columns, users };
+const generateProducts = () => {
+	const products = [];
+	for (let i = 0; i < 5; i++) {
+		const product = {
+			id: i,
+			product_name: faker.commerce.productName(),
+			address: faker.location.streetAddress({ useFullAddress: true }),
+			price: faker.commerce.price({
+				min: 40000,
+				max: 1000000,
+				dec: 0,
+				symbol: "₦",
+			}),
+			date_added: formattedDate(faker.date.recent()),
+			status: statuses[Math.floor(Math.random() * statuses.length)],
+			serial_number: faker.commerce.isbn(13),
+		};
+		products.push(product);
+	}
+	return products;
+};
+
+const products = generateProducts();
+
+export { columns, products };
