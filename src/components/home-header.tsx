@@ -1,9 +1,12 @@
 "use client";
 
+import { useDefaultStore } from "@/providers/default-store-provider";
 import { Button, Input } from "@nextui-org/react";
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
 
 const HomeHeader = () => {
+	const { openSidebarCart } = useDefaultStore(state => state);
+
 	return (
 		<div className="flex items-center justify-between p-[27px]">
 			<h1 className="text-center text-3xl font-bold">
@@ -17,9 +20,7 @@ const HomeHeader = () => {
 					labelPlacement="outside"
 					radius="full"
 					variant="bordered"
-					classNames={{
-						inputWrapper: "border-1 shadow-none",
-					}}
+					classNames={{ inputWrapper: "shadow-none" }}
 					size="lg"
 					endContent={
 						<SearchNormal1
@@ -34,6 +35,7 @@ const HomeHeader = () => {
 					aria-label="Cart"
 					radius="full"
 					size="lg"
+					onClick={openSidebarCart}
 				>
 					<ShoppingCart color="#FFF" variant="Bold" />
 				</Button>

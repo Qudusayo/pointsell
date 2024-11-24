@@ -11,24 +11,27 @@ export default function Home() {
 
 	return (
 		<HomeLayout>
-			<HomeHeader />
 			<div
-				className={cn(
-					"grid flex-1 grid-cols-4 gap-4 overflow-y-auto px-6 pb-6",
-					isSidebarCartOpen && "grid-cols-3",
-				)}
 				style={{
 					width: isSidebarCartOpen ? "calc(100% - 384px)" : "100%",
 					transition: "width 0.3s",
 				}}
 			>
-				{Array(10)
-					.fill(0)
-					.map((_, index) => (
-						<div key={index}>
-							<ProductCard />
-						</div>
-					))}
+				<HomeHeader />
+				<div
+					className={cn(
+						"grid flex-1 grid-cols-4 gap-4 overflow-y-auto px-6 pb-6",
+						isSidebarCartOpen && "grid-cols-3",
+					)}
+				>
+					{Array(10)
+						.fill(0)
+						.map((_, index) => (
+							<div key={index}>
+								<ProductCard />
+							</div>
+						))}
+				</div>
 			</div>
 		</HomeLayout>
 	);
