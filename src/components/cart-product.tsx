@@ -7,7 +7,7 @@ const CartProduct = () => {
 				alt="nextui logo"
 				height={40}
 				radius="sm"
-				src="https://nextui.org/images/hero-card-complete.jpeg"
+				src="/placeholder.png"
 				width={40}
 				className="object-cover object-center"
 			/>

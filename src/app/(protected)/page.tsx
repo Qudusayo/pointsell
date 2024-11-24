@@ -3,16 +3,25 @@
 import HomeHeader from "@/components/home-header";
 import ProductCard from "@/components/product-card";
 import HomeLayout from "@/layout/home-layout";
+import { useDefaultStore } from "@/providers/default-store-provider";
+import { cn } from "@nextui-org/react";
 
 export default function Home() {
-	// const { count, incrementCount, decrementCount } = useCounterStore(
-	// 	state => state,
-	// );
+	const { isSidebarCartOpen } = useDefaultStore(state => state);
 
 	return (
 		<HomeLayout>
 			<HomeHeader />
-			<div className="grid flex-1 grid-cols-3 gap-4 overflow-y-auto px-6 pb-6">
+			<div
+				className={cn(
+					"grid flex-1 grid-cols-4 gap-4 overflow-y-auto px-6 pb-6",
+					isSidebarCartOpen && "grid-cols-3",
+				)}
+				style={{
+					width: isSidebarCartOpen ? "calc(100% - 384px)" : "100%",
+					transition: "width 0.3s",
+				}}
+			>
 				{Array(10)
 					.fill(0)
 					.map((_, index) => (

@@ -1,3 +1,6 @@
+"use client";
+
+import { useDefaultStore } from "@/providers/default-store-provider";
 import {
 	Button,
 	Card,
@@ -9,6 +12,8 @@ import {
 import { Add } from "iconsax-react";
 
 const ProductCard = () => {
+	const { openSidebarCart } = useDefaultStore(state => state);
+
 	return (
 		<Card className="border py-3 shadow-none">
 			<CardHeader className="overflow-visible py-0">
@@ -27,6 +32,7 @@ const ProductCard = () => {
 				<Button
 					startContent={<Add size="20" color="#FFF" variant="Outline" />}
 					className="w-full bg-main-color-primary text-white"
+					onClick={openSidebarCart}
 				>
 					Add Product
 				</Button>

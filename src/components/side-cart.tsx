@@ -1,13 +1,25 @@
-import { Button } from "@nextui-org/react";
-import { Add } from "iconsax-react";
+"use client";
+
+import { useDefaultStore } from "@/providers/default-store-provider";
+import { Button, cn } from "@nextui-org/react";
+import { X } from "lucide-react";
 import CartProduct from "./cart-product";
 
 const SideCart = () => {
+	const { isSidebarCartOpen, closeSidebarCart } = useDefaultStore(
+		state => state,
+	);
+
 	return (
-		<div className="flex h-full flex-col border-l px-4 py-8">
+		<div
+			className={cn(
+				"fixed z-10 flex h-full w-96 flex-col border border-l bg-white px-4 py-8 transition-all duration-300 ease-in-out",
+				!isSidebarCartOpen ? "-right-96" : "-right-0",
+			)}
+		>
 			<div className="flex cursor-pointer items-center justify-between">
 				<h2 className="font-semibold">Order #256482</h2>
-				<Add size="32" color="#000" className="rotate-45" />
+				<X size={24} color="#000" onClick={closeSidebarCart} />
 			</div>
 			<div className="flex flex-1 flex-col gap-4 py-8">
 				<CartProduct />

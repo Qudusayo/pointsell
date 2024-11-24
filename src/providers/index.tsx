@@ -1,11 +1,11 @@
 import { NextUIProvider } from "@nextui-org/system";
-import { CounterStoreProvider } from "./counter-store-provider";
+import { DefaultStoreProvider } from "./default-store-provider";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<CounterStoreProvider>
+		<DefaultStoreProvider>
 			<NextUIProvider>{children}</NextUIProvider>
-		</CounterStoreProvider>
+		</DefaultStoreProvider>
 	);
 };
 
