@@ -3,16 +3,14 @@
 import { useDefaultStore } from "@/providers/default-store-provider";
 import { Button, Input } from "@nextui-org/react";
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
+import Logo from "./logo";
 
 const HomeHeader = () => {
 	const { openSidebarCart } = useDefaultStore(state => state);
 
 	return (
 		<div className="flex items-center justify-between p-[27px]">
-			<h1 className="text-center text-3xl font-bold">
-				Point
-				<span className="text-main-color-primary">sell</span>
-			</h1>
+			<Logo />
 			<div className="flex max-w-xl flex-1 gap-4">
 				<Input
 					type="search"
@@ -20,7 +18,7 @@ const HomeHeader = () => {
 					labelPlacement="outside"
 					radius="full"
 					variant="bordered"
-					classNames={{ inputWrapper: "shadow-none" }}
+					classNames={{ inputWrapper: "shadow-none border" }}
 					size="lg"
 					endContent={
 						<SearchNormal1

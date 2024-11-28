@@ -5,7 +5,7 @@ const GeneralLayout = ({
 	headerTitle,
 	headerControl,
 }: {
-	headerTitle: string;
+	headerTitle: React.ReactNode | string;
 	headerControl?: React.ReactNode;
 	children: React.ReactNode;
 }) => {

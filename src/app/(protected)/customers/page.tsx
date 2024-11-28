@@ -14,7 +14,7 @@ const DashboardPage = () => {
 					className="bg-main-color-primary text-white"
 					endContent={<Plus size={16} />}
 					as={Link}
-					href="/customers/new"
+					href="/new/customer"
 				>
 					Add New
 				</Button>

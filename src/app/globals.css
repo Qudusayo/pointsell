@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+	* {
+		font-family: var(--font-geist-sans);
+	}
+
 	body {
 		overflow-y: hidden;
 		background-color: #e8e8e83d;
