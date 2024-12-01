@@ -14,7 +14,7 @@ const statuses = ["in_stock", "out_of_stock", "running_low"];
 
 const generateProducts = () => {
 	const products = [];
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 0; i++) {
 		const product = {
 			id: i,
 			product_name: faker.commerce.productName(),
