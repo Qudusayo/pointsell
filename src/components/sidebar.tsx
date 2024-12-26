@@ -32,7 +32,7 @@ const Sidebar = () => {
 						href="/customers"
 						icon={User}
 						name="Customers"
-						className="hidden md:block"
+						className="hidden md:flex"
 					/>
 					{/* </div>
 				<div className="flex flex-col items-center gap-10 py-10"> */}
@@ -41,7 +41,7 @@ const Sidebar = () => {
 						href="/"
 						icon={LogoutCurve}
 						logout
-						className="hidden md:block"
+						className="hidden md:flex"
 					/>
 				</div>
 			</div>

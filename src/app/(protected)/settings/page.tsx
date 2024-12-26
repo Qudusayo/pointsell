@@ -22,7 +22,7 @@ const SettingsPage = () => {
 		<GeneralLayout headerTitle="Settings">
 			<div className="grid h-full gap-8 md:grid-cols-2">
 				<div className="rounded-lg border p-4">
-					<div className="flex flex-col items-center gap-4 border-b py-14">
+					<div className="flex flex-col items-center gap-4 py-14">
 						<Avatar className="h-40 w-40 text-large" />
 						<div className="space-y-4 text-center">
 							<h2 className="text-2xl font-medium">Balogun Emmanuel</h2>
@@ -76,7 +76,7 @@ const AddEmployee = () => {
 						variant="bordered"
 						size="lg"
 						classNames={{
-							trigger: "shadow-none border-gray-300 rounded-lg",
+							trigger: "shadow-none border-1 border-gray-300 rounded-lg",
 						}}
 						// onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
 						// 	formData.setFieldValue("ram", e.target.value);

@@ -89,7 +89,7 @@ const NewProduct = () => {
 									variant="bordered"
 									size="lg"
 									classNames={{
-										trigger: "shadow-none border-gray-300 rounded-lg",
+										trigger: "shadow-none border-1 border-gray-300 rounded-lg",
 									}}
 									onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
 										formData.setFieldValue("ram", e.target.value);
@@ -110,6 +110,7 @@ const NewProduct = () => {
 						<Features />
 						<div className="relative -top-1 flex items-end">
 							<Button
+								size="lg"
 								className="w-full bg-main-color-primary align-bottom text-white"
 								type="submit"
 							>

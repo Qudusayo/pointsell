@@ -30,7 +30,7 @@ export default function Features() {
 				}
 				variant="bordered"
 				classNames={{
-					trigger: "shadow-none border-gray-300 rounded-lg",
+					trigger: "shadow-none border-1 border-gray-300 rounded-lg",
 				}}
 			>
 				{properties.map(animal => (

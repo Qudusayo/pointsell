@@ -6,7 +6,7 @@ const CustomInput = (props: InputProps) => (
 		variant="bordered"
 		size="lg"
 		classNames={{
-			inputWrapper: "shadow-none border-gray-300 rounded-lg",
+			inputWrapper: "shadow-none border-1 border-gray-300 rounded-lg",
 		}}
 		{...props}
 	/>
