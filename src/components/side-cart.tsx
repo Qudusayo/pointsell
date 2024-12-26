@@ -13,7 +13,7 @@ const SideCart = () => {
 	return (
 		<div
 			className={cn(
-				"fixed z-10 flex h-full w-96 flex-col border border-l bg-white px-4 py-8 transition-all duration-300 ease-in-out",
+				"absolute z-10 flex h-full w-96 flex-col border border-l bg-white px-4 py-8 transition-all duration-300 ease-in-out",
 				!isSidebarCartOpen ? "-right-96" : "-right-0",
 			)}
 		>

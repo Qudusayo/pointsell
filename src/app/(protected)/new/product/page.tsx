@@ -1,10 +1,39 @@
-import FileUploader from "@/components/file-uploader";
+"use client";
+
+// import FileUploader from "@/components/file-uploader";
+import CustomInput from "@/components/custom-input";
 import GeneralLayout from "@/layout/general-layout";
-import { Button, Input, InputProps } from "@nextui-org/react";
+import { Button, Select, SelectItem, Switch } from "@nextui-org/react";
+import { useFormik } from "formik";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
+import Features from "./properties";
+
+const rams = [
+	{ key: "4", label: "4GB" },
+	{ key: "8", label: "8GB" },
+	{ key: "16", label: "16GB" },
+	{ key: "18", label: "18GB" },
+	{ key: "28", label: "28GB" },
+	{ key: "32", label: "32GB" },
+	{ key: "36", label: "36GB" },
+];
 
 const NewProduct = () => {
+	const formData = useFormik({
+		initialValues: {
+			name: "",
+			serialNo: "",
+			price: "",
+			ram: "",
+			features: [],
+			isCustomRam: false,
+		},
+		onSubmit: values => {
+			console.log(values);
+		},
+	});
+
 	return (
 		<GeneralLayout
 			headerTitle={
@@ -21,36 +50,77 @@ const NewProduct = () => {
 			}
 		>
 			<div>
-				<form action="#" className="space-y-20">
-					<div>
+				<form className="space-y-20" onSubmit={formData.handleSubmit}>
+					{/* <div>
 						<FileUploader />
-					</div>
-					<div className="grid grid-cols-3 gap-x-4 gap-y-12">
-						<CustomInput label="Product Name" placeholder="Product Name" />
-						<CustomInput label="Product Unit" placeholder="Enter Unit" />
-						<CustomInput label="Category" placeholder="Enter Category" />
-						<CustomInput label="Price" placeholder="Enter Price" />
-						<CustomInput label="Status" placeholder="Enter Status" />
-						<CustomInput label="Product ID" placeholder="123456789" />
-						<Button className="col-span-1 col-start-2 bg-main-color-primary text-white">
-							Add Product
-						</Button>
+					</div> */}
+					<div className="grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
+						<CustomInput
+							label="Name"
+							placeholder="Name"
+							{...formData.getFieldProps("name")}
+						/>
+						<CustomInput
+							label="Serial No."
+							placeholder="Enter Unit"
+							{...formData.getFieldProps("serialNo")}
+						/>
+						<CustomInput
+							label="Price"
+							placeholder="Enter Price"
+							{...formData.getFieldProps("price")}
+						/>
+						<div className="relative -top-1 flex flex-col items-start gap-1">
+							<div className="flex items-center gap-2">
+								<span className="text-sm">Custom RAM</span>
+								<Switch
+									size="sm"
+									className="scale-80"
+									checked={formData.values.isCustomRam}
+									onValueChange={checked => {
+										formData.setFieldValue("isCustomRam", checked);
+									}}
+								/>
+							</div>
+							{!formData.values.isCustomRam ? (
+								<Select
+									labelPlacement="outside"
+									placeholder="Select RAM"
+									variant="bordered"
+									size="lg"
+									classNames={{
+										trigger: "shadow-none border-gray-300 rounded-lg",
+									}}
+									onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+										formData.setFieldValue("ram", e.target.value);
+									}}
+									selectedKeys={[formData.values.ram]}
+								>
+									{rams.map(ram => (
+										<SelectItem key={ram.key}>{ram.label}</SelectItem>
+									))}
+								</Select>
+							) : (
+								<CustomInput
+									placeholder="Enter RAM"
+									{...formData.getFieldProps("ram")}
+								/>
+							)}
+						</div>
+						<Features />
+						<div className="relative -top-1 flex items-end">
+							<Button
+								className="w-full bg-main-color-primary align-bottom text-white"
+								type="submit"
+							>
+								Add Product
+							</Button>
+						</div>
 					</div>
 				</form>
 			</div>
 		</GeneralLayout>
 	);
 };
-
-const CustomInput = (props: InputProps) => (
-	<Input
-		labelPlacement="outside"
-		variant="bordered"
-		classNames={{
-			inputWrapper: "shadow-none border border-gray-300",
-		}}
-		{...props}
-	/>
-);
 
 export default NewProduct;

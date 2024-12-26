@@ -8,7 +8,7 @@ const Header = ({
 	control?: ReactNode;
 }) => {
 	return (
-		<header className="flex items-center justify-between p-8">
+		<header className="flex flex-wrap items-center justify-between gap-4 px-2 py-8 md:p-8">
 			{typeof title === "string" ? (
 				<h2 className="text-3xl font-bold">{title}</h2>
 			) : (

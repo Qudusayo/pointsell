@@ -18,21 +18,31 @@ import React, { FC } from "react";
 
 const Sidebar = () => {
 	return (
-		<section className="flex h-full flex-col border-r">
-			<div className="border-b p-7 leading-[0]">
+		<section className="h-20 w-full flex-col border-t py-4 md:flex md:h-full md:w-fit md:min-w-28 md:border-r md:py-0">
+			<div className="hidden items-center justify-center border-b p-7 leading-[0] md:flex">
 				<Image src="/logo.svg" alt="logo" width={45} height={45} />
 			</div>
-			<div className="flex flex-grow flex-col items-center justify-between">
-				<div className="flex flex-col items-center gap-10 py-10">
+			<div className="flex h-full items-center justify-around md:flex-grow md:flex-col md:justify-between">
+				<div className="flex flex-grow items-center justify-around md:h-full md:flex-col md:gap-10 md:py-10">
 					<LinkIcon href="/store" icon={Category} name="Store" />
 					<LinkIcon href="/dashboard" icon={Home3} name="Home" />
 					<LinkIcon href="/orders" icon={ClipboardText} name="Orders" />
 					<LinkIcon href="/products" icon={ShoppingBag} name="Products" />
-					<LinkIcon href="/customers" icon={User} name="Customers" />
-				</div>
-				<div className="flex flex-col items-center gap-10 py-10">
+					<LinkIcon
+						href="/customers"
+						icon={User}
+						name="Customers"
+						className="hidden md:block"
+					/>
+					{/* </div>
+				<div className="flex flex-col items-center gap-10 py-10"> */}
 					<LinkIcon href="/settings" icon={Setting2} name="Settings" />
-					<LinkIcon href="/" icon={LogoutCurve} logout />
+					<LinkIcon
+						href="/"
+						icon={LogoutCurve}
+						logout
+						className="hidden md:block"
+					/>
 				</div>
 			</div>
 		</section>
@@ -44,11 +54,13 @@ const LinkIcon = ({
 	icon,
 	name,
 	logout,
+	className,
 }: {
 	href: string;
 	icon: FC<IconProps>;
 	name?: string;
 	logout?: boolean;
+	className?: string;
 }) => {
 	const pathname = usePathname();
 
@@ -56,9 +68,10 @@ const LinkIcon = ({
 		<Link
 			href={href}
 			className={cn(
-				"gap- flex flex-col items-center",
+				"flex flex-col items-center",
 				pathname === href ? "text-main-color-primary" : "text-gray-400",
 				logout && "text-red-500",
+				className,
 			)}
 		>
 			{React.createElement(icon, {

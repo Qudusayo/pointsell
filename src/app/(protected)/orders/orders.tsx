@@ -38,7 +38,7 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
 	running_low: "warning",
 };
 
-export default function Products({ products }: { products: Product[] }) {
+export default function Orders({ orders }: { orders: Product[] }) {
 	const [rowsPerPage] = React.useState(10);
 	const [filterValue, setFilterValue] = React.useState("");
 	const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
@@ -47,12 +47,12 @@ export default function Products({ products }: { products: Product[] }) {
 	});
 	const [page, setPage] = React.useState(1);
 
-	const pages = Math.ceil(products.length / rowsPerPage);
+	const pages = Math.ceil(orders.length / rowsPerPage);
 
 	const hasSearchFilter = Boolean(filterValue);
 
 	const filteredItems = React.useMemo(() => {
-		let filteredUsers = [...products];
+		let filteredUsers = [...orders];
 
 		if (hasSearchFilter) {
 			filteredUsers = filteredUsers.filter(user =>
@@ -61,7 +61,7 @@ export default function Products({ products }: { products: Product[] }) {
 		}
 
 		return filteredUsers;
-	}, [products, filterValue]);
+	}, [orders, filterValue]);
 
 	const items = React.useMemo(() => {
 		const start = (page - 1) * rowsPerPage;
@@ -153,7 +153,7 @@ export default function Products({ products }: { products: Product[] }) {
 				</div>
 			</div>
 		);
-	}, [filterValue, onSearchChange, products.length, hasSearchFilter]);
+	}, [filterValue, onSearchChange, orders.length, hasSearchFilter]);
 
 	const bottomContent = React.useMemo(() => {
 		return (
@@ -188,11 +188,10 @@ export default function Products({ products }: { products: Product[] }) {
 						/>
 					</div>
 					<h2 className="text-lg font-medium text-black">
-						You don&apos;t have any product.
+						You don&apos;t have any order.
 					</h2>
 					<span className="text-balance text-default-400">
-						You have not added any product to this list yet, click the button
-						above to add one.
+						Please add a new order to see it here.
 					</span>
 				</div>
 			</div>

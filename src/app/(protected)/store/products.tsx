@@ -188,11 +188,10 @@ export default function Products({ products }: { products: Product[] }) {
 						/>
 					</div>
 					<h2 className="text-lg font-medium text-black">
-						You don&apos;t have any product.
+						You don&apos;t have any product available.
 					</h2>
 					<span className="text-balance text-default-400">
-						You have not added any product to this list yet, click the button
-						above to add one.
+						You can check back later when any product is approved.
 					</span>
 				</div>
 			</div>

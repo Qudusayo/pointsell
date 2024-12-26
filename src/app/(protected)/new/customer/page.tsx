@@ -1,5 +1,6 @@
+import CustomInput from "@/components/custom-input";
 import GeneralLayout from "@/layout/general-layout";
-import { Button, Input, InputProps } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -47,16 +48,5 @@ const NewCustomer = () => {
 		</GeneralLayout>
 	);
 };
-
-const CustomInput = (props: InputProps) => (
-	<Input
-		labelPlacement="outside"
-		variant="bordered"
-		classNames={{
-			inputWrapper: "shadow-none border border-gray-300",
-		}}
-		{...props}
-	/>
-);
 
 export default NewCustomer;

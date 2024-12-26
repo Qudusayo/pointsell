@@ -10,9 +10,11 @@ const GeneralLayout = ({
 	children: React.ReactNode;
 }) => {
 	return (
-		<div className="flex h-screen max-h-full flex-col overflow-hidden">
+		<div className="flex h-full flex-col">
 			<Header title={headerTitle} control={headerControl} />
-			<div className="h-full flex-1 px-6 pb-6">{children}</div>
+			<div className="h-full flex-1 overflow-auto px-2 pb-6 md:px-6">
+				{children}
+			</div>
 		</div>
 	);
 };

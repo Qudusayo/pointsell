@@ -2,9 +2,9 @@ import Sidebar from "@/components/sidebar";
 
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<section className="flex h-screen">
+		<section className="flex h-dvh w-dvw flex-col-reverse overflow-hidden md:flex-row">
 			<Sidebar />
-			<div className="flex-1">{children}</div>
+			<div className="flex-grow overflow-hidden">{children}</div>
 		</section>
 	);
 };
